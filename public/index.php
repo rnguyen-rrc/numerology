@@ -6,9 +6,9 @@ require('../constants.php');
     <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="<?=BASE_URL?>main.css?">
+        <link rel="stylesheet" href="<?=BASE_URL?>assets/main.css?">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="<?=BASE_URL?>main.js"></script>
+        <script src="<?=BASE_URL?>assets/main.js"></script>
         <title>Huyen Hoc Chuyen Hoa - User Information Form</title>
     </head>
 
