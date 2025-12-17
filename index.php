@@ -1,33 +1,34 @@
 <?php
-require('../constants.php');
+require('constants.php');
 ?>
 
 <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="<?=BASE_URL?>assets/main.css?">
+        <link rel="stylesheet" href="assets/main.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="<?=BASE_URL?>assets/main.js"></script>
+        <script src="assets/main.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Huyen Hoc Chuyen Hoa - User Information Form</title>
     </head>
 
     <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="<?=BASE_URL?>public/index.php">Home</a></li>
-            <li><a href="<?=BASE_URL?>public/index.php">Login</a></li>
-            <li><a href="<?=BASE_URL?>public/index.php">Users</a></li>
-            <li><a href="#formNumSection">Enter Reading</a></li>
-        </ul>
-    </nav>
+<!--    <nav class="navbar">-->
+<!--        <ul>-->
+<!--            <li><a href="index.php">Home</a></li>-->
+<!--            <li><a href="index.php">Login</a></li>-->
+<!--            <li><a href="index.php">Users</a></li>-->
+<!--            <li><a href="#formNumSection">Enter Reading</a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
 
     <div id="formNumSection" class="form-container">
         <h1>Numerology</h1>
 
-        <form action="<?=BASE_URL?>export/NumHTMLReport.php" method="post">
+        <form action="export/NumHTMLReport.php" method="post">
             <div class="form-group">
                 <label for="fullName">Full Name (*)</label>
                 <input type="text" id="fullName" name="fullName" value="" required />

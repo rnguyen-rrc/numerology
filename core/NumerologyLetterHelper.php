@@ -8,32 +8,39 @@ class NumerologyLetterHelper
         $prev = $chars[$i - 1] ?? null;
         $next = $chars[$i + 1] ?? null;
 
-        // Case 1: Y at the end of the word
+        // Y at beginning
+        if ($i === 0) {
+            // Followed by vowel → consonant (Yolanda)
+            if ($next !== null && self::isVowel($next)) {
+                return true;
+            }
+            // Followed by consonant → vowel (Yvonne)
+            return false;
+        }
+
+        // Y at end
         if ($next === null) {
+            // After vowel → consonant (Mickey)
+            if ($prev !== null && self::isVowel($prev)) {
+                return true;
+            }
+            // After consonant → vowel (Barry)
+            return false;
+        }
+
+        // Between two vowels → consonant
+        if (self::isVowel($prev) && self::isVowel($next)) {
             return true;
         }
 
-        // Case 2: Y at the beginning of the word and followed by a vowel
-        if ($i === 0 && self::isVowel($next)) {
-            return true;
+        // Between two consonants → vowel
+        if (!self::isVowel($prev) && !self::isVowel($next)) {
+            return false;
         }
 
-        // Case 3: Y is between two vowels
-        if ($prev && $next && self::isVowel($prev) && self::isVowel($next)) {
-            return true;
-        }
-
-        // Case 4: before Y is (vowel + consonant), after Y is a vowel
-        if (
-            $i >= 2 &&
-            self::isVowel($chars[$i - 2]) &&
-            !self::isVowel($prev) &&
-            self::isVowel($next)
-        ) {
-            return true;
-        }
-
-        return false;
+        // Default (vowel+Y+consonant OR consonant+Y+vowel)
+        // Numerology default: consonant
+        return true;
     }
 
     public static function isYVowel(array $chars, int $i): bool
