@@ -3,11 +3,12 @@
     require_once '../autoload.php';
     require('../constants.php');
 
-    $fullName   = $_REQUEST['fullName'];
-    $nickName   = $_REQUEST['nickName'];
-    $dob        = $_REQUEST['dob'];
-    $email      = $_REQUEST['email'];
-    $phone      = $_REQUEST['telephone'];
+    $fullName       = $_REQUEST['fullName'];
+    $nickName       = $_REQUEST['nickName'];
+    $dob            = $_REQUEST['dob'];
+    $email          = $_REQUEST['email'];
+    $phone          = $_REQUEST['telephone'];
+    $reportingYear  = $_REQUEST['reportingyear'];
 
     $objCustomer = new clsCustomer($fullName, $dob, $email, $phone, $nickName);
     //store user - wip
@@ -107,12 +108,35 @@
                                 <td>Phone</td>
                                 <td><?=$phone?></td>
                             </tr>
+                            <tr>
+                                <td>Reporting Year</td>
+                                <td><?=$reportingYear?></td>
+                            </tr>
                         </table>
                     </div>
                 </div>
                 <div class="result-container">
                     <div class="number-result">
                         <h2>Numerology Numbers</h2>
+
+                        <table class="number-table">
+                            <thead>
+                                <tr>
+                                    <th style="">Number Name</th>
+                                    <th style="">Final Number</th>
+                                    <th style="">Major Number</th>
+                                    <th style="">Compound Number<br>(Root Number)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Life Path <br>(Đường đời)</td>
+                                    <td><?= $objCustomer->getNumber(NumerologyKeys::LIFE_PATH_V) ?></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                         <table class="number-table">
                             <thead>

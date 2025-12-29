@@ -55,10 +55,14 @@ require('constants.php');
                 </div>
             </div>
 
-
             <div class="form-group">
                 <label for="birthplace">Place of Birth</label>
                 <input type="text" id="birthplace" name="birthplace" value="" />
+            </div>
+
+            <div class="form-group">
+                <label for="reportingyear">Reporting Year</label>
+                <input type="text" id="reportingyear" name="reportingyear" value="<?=(int)date('Y')?>" />
             </div>
 
             <div class="form-group inline-group">
